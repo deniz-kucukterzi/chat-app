@@ -9,7 +9,9 @@
   "dependencies": {
     "react": "~15.4.0-rc.4",
     "react-native": "0.41.0",
+    "react-native-dismiss-keyboard": "^1.0.0",
     "react-native-keyboard-aware-scroll-view": "^0.2.7",
+    "react-native-keyboard-spacer": "^0.3.1",
     "socket.io-client": "^1.7.2"
   },
   "devDependencies": {

@@ -7,10 +7,13 @@ import {
   View
 } from 'react-native';
 
+import KeyboardSpacer from 'react-native-keyboard-spacer';
+const io = require('socket.io-client');
+
 import Messages from './Messages';
 import Input from './Input';
 
-const io = require('socket.io-client');
+import dismissKeyboard from 'react-native-dismiss-keyboard';
 
 const messages = [
   { author: "Deniz", body: "Hello World" },
@@ -63,6 +66,7 @@ export default class ChatWidget extends Component {
 
   sendMessage(message) {
     this.emit('sendMessage', { author: this.props.author, body: message});
+    dismissKeyboard();
   }
 
   receiveMessage(message) {
@@ -81,7 +85,8 @@ export default class ChatWidget extends Component {
       <View style={styles.container}>
         <Text style={styles.title}>Chat App {statusString}</Text>
         <Messages messages={this.state.messages} />
-        <Input style={styles.input} handleSubmit={this.sendMessage} submitText='Go' />
+        <Input style={styles.input} handleSubmit={this.sendMessage} submitText='Send' />
+        <KeyboardSpacer />
       </View>
     );
   }
@@ -94,6 +99,7 @@ const styles = StyleSheet.create({
     fontSize: 19,
     fontWeight: 'bold',
     textAlign: 'center',
+    color: 'white',
     backgroundColor: 'steelblue',
   },
   container: {
