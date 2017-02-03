@@ -3,25 +3,29 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  ScrollView
 } from 'react-native';
+
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 export default class Messages extends Component {
 
   render() {
 
     return (
-      <View style={styles.messages}>
+      <KeyboardAwareScrollView style={styles.messages}>
         {this.props.messages.map((message, i) => {
           return <Text key={i}>{message.author}: {message.body}</Text>;
         })}
-      </View>
+      </KeyboardAwareScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
   messages: {
-
+    flex: 1,
+    backgroundColor: 'powderblue',
+    padding: 15
   }
 });

@@ -24,6 +24,7 @@ export default class ChatWidget extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Text style={styles.title}>Chat App</Text>
         <Messages messages={messages} />
         <Input handleSubmitMessage={broadcastMessage} />
       </View>
@@ -32,10 +33,16 @@ export default class ChatWidget extends Component {
 }
 
 const styles = StyleSheet.create({
+  title: {
+    height: 60,
+    padding: 25,
+    fontSize: 19,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    backgroundColor: 'steelblue',
+  },
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
   }
 });

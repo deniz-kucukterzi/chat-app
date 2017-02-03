@@ -5,13 +5,16 @@
  */
 
 import React, { Component } from 'react';
-import ChatWidget from './components/ChatWidget';
 import {
   AppRegistry,
   StyleSheet,
   Text,
+  TextInput,
+  ScrollView,
   View
 } from 'react-native';
+
+import ChatWidget from './components/ChatWidget';
 
 export default class NativeClient extends Component {
   render() {
