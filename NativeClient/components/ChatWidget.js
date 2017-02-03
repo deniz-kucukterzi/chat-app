@@ -16,12 +16,16 @@ const messages = [
   { author: "Deniz", body: "Shut up, cunt" },
 ];
 
+const broadcastMessage = (message) => {
+  messages.push({ author: "You", body: message });
+};
+
 export default class ChatWidget extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Messages messages={messages} />
-        <Input />
+        <Input handleSubmitMessage={broadcastMessage} />
       </View>
     );
   }
