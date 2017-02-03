@@ -9,7 +9,8 @@
   "dependencies": {
     "react": "~15.4.0-rc.4",
     "react-native": "0.41.0",
-    "react-native-keyboard-aware-scroll-view": "^0.2.7"
+    "react-native-keyboard-aware-scroll-view": "^0.2.7",
+    "socket.io-client": "^1.7.2"
   },
   "devDependencies": {
     "babel-jest": "18.0.0",

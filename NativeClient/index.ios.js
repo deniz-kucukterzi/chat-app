@@ -15,12 +15,30 @@ import {
 } from 'react-native';
 
 import ChatWidget from './components/ChatWidget';
+import Input from './components/Input';
 
 export default class NativeClient extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      author: undefined
+    };
+
+    this.setAuthor = this.setAuthor.bind(this);
+  }
+
+  setAuthor(username) {
+    this.setState({
+      author: username
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <ChatWidget />
+        {!this.state.author && <Input handleSubmit={this.setAuthor} />}
+        {this.state.author && <ChatWidget author={this.state.author} />}
       </View>
     );
   }

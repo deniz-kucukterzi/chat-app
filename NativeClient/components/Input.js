@@ -11,6 +11,14 @@ export default class Input extends Component {
   constructor(props) {
     super(props);
     this.state = { text: '' };
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit() {
+    this.props.handleSubmit(this.state.text);
+    this.setState({
+      text: ''
+    });
   }
 
   render() {
@@ -22,8 +30,8 @@ export default class Input extends Component {
           style={styles.textInput}
         />
         <Button
-          title='do'
-          onPress={() => { this.props.handleSubmitMessage(this.state.text); }}
+          title='Send'
+          onPress={this.handleSubmit}
           style={styles.button}
         />
       </View>

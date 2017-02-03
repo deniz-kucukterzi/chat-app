@@ -78,6 +78,11 @@ io.sockets.on('connection', function (socket) {
 		console.log("Answer: '%s' - %j", payload.choice, results);
 	});
 
+	socket.on('sendMessage', function(message) {
+		console.log("SendMessage: " + message.author + ': ' + message.body);
+		io.sockets.emit('receiveMessage', message);
+	});
+
 	socket.emit('welcome', {
 		title: title,
 		audience: audience,
