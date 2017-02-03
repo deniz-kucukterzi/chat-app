@@ -5,6 +5,7 @@
  */
 
 import React, { Component } from 'react';
+import ChatWidget from './components/ChatWidget';
 import {
   AppRegistry,
   StyleSheet,
@@ -16,16 +17,7 @@ export default class NativeClient extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
+        <ChatWidget />
       </View>
     );
   }
@@ -34,20 +26,8 @@ export default class NativeClient extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  }
 });
 
 AppRegistry.registerComponent('NativeClient', () => NativeClient);
