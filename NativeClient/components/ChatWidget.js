@@ -10,7 +10,7 @@ import {
 import Messages from './Messages';
 import Input from './Input';
 
-var io = require('socket.io-client');
+const io = require('socket.io-client');
 
 const messages = [
   { author: "Deniz", body: "Hello World" },
@@ -34,7 +34,7 @@ export default class ChatWidget extends Component {
   }
 
   componentWillMount() {
-    this.socket = io('http://localhost:3000');
+    this.socket = io('https://f27b4f3b.ngrok.io');
 
     this.socket.on('connect', this.connect);
     this.socket.on('disconnect', this.disconnect);
@@ -81,7 +81,7 @@ export default class ChatWidget extends Component {
       <View style={styles.container}>
         <Text style={styles.title}>Chat App {statusString}</Text>
         <Messages messages={this.state.messages} />
-        <Input handleSubmit={this.sendMessage} />
+        <Input style={styles.input} handleSubmit={this.sendMessage} submitText='Go' />
       </View>
     );
   }
@@ -99,5 +99,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F5FCFF',
-  }
+  },
+  input: {
+    height: 70,
+    padding: 15,
+    backgroundColor: 'skyblue',
+    flexDirection: 'row'
+  },
 });

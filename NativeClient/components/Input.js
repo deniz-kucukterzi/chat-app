@@ -23,14 +23,16 @@ export default class Input extends Component {
 
   render() {
     return (
-      <View style={styles.input}>
+      <View style={this.props.style}>
         <TextInput
           onChangeText={(text) => this.setState({text})}
           value={this.state.text}
           style={styles.textInput}
+          returnKeyType={"send"}
+          onSubmitEditing={this.handleSubmit}
         />
         <Button
-          title='Send'
+          title={this.props.submitText}
           onPress={this.handleSubmit}
           style={styles.button}
         />
@@ -40,17 +42,13 @@ export default class Input extends Component {
 }
 
 const styles = StyleSheet.create({
-  input: {
-    height: 70,
-    padding: 15,
-    backgroundColor: 'skyblue',
-    flexDirection: 'row'
-  },
   textInput: {
     height: 40,
     borderColor: 'gray',
     borderWidth: 1,
-    flex: 0.8
+    flex: 0.8,
+    backgroundColor: 'white',
+    padding: 5,
   },
   button: {
     flex: 0.2

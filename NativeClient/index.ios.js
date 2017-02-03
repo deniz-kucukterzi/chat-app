@@ -15,7 +15,7 @@ import {
 } from 'react-native';
 
 import ChatWidget from './components/ChatWidget';
-import Input from './components/Input';
+import UsernameWidget from './components/UsernameWidget';
 
 export default class NativeClient extends Component {
 
@@ -37,7 +37,7 @@ export default class NativeClient extends Component {
   render() {
     return (
       <View style={styles.container}>
-        {!this.state.author && <Input handleSubmit={this.setAuthor} />}
+        {!this.state.author && <UsernameWidget setAuthor={this.setAuthor} />}
         {this.state.author && <ChatWidget author={this.state.author} />}
       </View>
     );
